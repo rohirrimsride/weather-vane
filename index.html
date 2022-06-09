@@ -4,22 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>Document</title>
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">-->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Vane</title>
 </head>
 <body>
-    <header class="container $cyan">
-        <h1>Weather Dashboard</h1>
+    <header>
+        <h1 class="title">Weather Dashboard</h1>
     </header>
-    <section>
-        <div>
-            <h2>Search for a City:</h2>
-        </div>
-        <div>
-            <!-- Dynamically fill city name h2, date (w/ icon showing current weather), temp, wind, humidity & UV index -->
-        </div>
-        <div>
-            <!-- Dynamically fill h3 5-day forecast -->
+    <section class="container">
+        <aside class="search">
+            <div class="search-form">
+                <h2 class="city-search">Search for a City:</h2>
+                <input type="text" class="search-input" placeholder="Seattle"></input>
+                <button id="searchBtn" class="search-button">Search</button>
+            </div>  
+            <div class="searchHistory">
+
+            </div>
+        </aside>
+        <div class="full-results">
+            <div class="city-results">
+                <h3>CITY NAME</h3>
+                <!-- Dynamically fill city name h2, date (w/ icon showing current weather), temp, wind, humidity & UV index -->
+            </div>
+            <div class="forecast">
+                <p>fancy 5-day forecast boxes</p>
+                <!-- Dynamically fill h3 5-day forecast; 5 cards; -->
+            </div>
         </div>
     </section>
 </body>
