@@ -14,11 +14,11 @@
     </header>
     <section class="container">
         <aside class="search">
-            <div class="search-form">
+            <form id="searchForm" class="search-form">
                 <h2 class="city-search">Search for a City:</h2>
-                <input type="text" class="search-input" placeholder="Seattle"></input>
-                <button id="searchBtn" class="search-button">Search</button>
-            </div>  
+                <input id="searchInput" type="text" class="search-input" placeholder="City, ST, CO"/>
+                <button id="searchBtn" type="submit" class="search-button">Search</button>
+            </form>  
             <div id="searchHistory" class="search-history">
                 <!-- dynamic search history results -->
             </div>

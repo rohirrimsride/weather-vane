@@ -65,6 +65,10 @@ header {
     padding-bottom: 5px;
 }
 
+.search-button:hover {
+    background-color: rgb(0, 0, 83);
+}
+
 .full-results {
     display: flex;
     flex-direction: column;
