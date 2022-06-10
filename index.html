@@ -19,20 +19,23 @@
                 <input type="text" class="search-input" placeholder="Seattle"></input>
                 <button id="searchBtn" class="search-button">Search</button>
             </div>  
-            <div class="searchHistory">
-
+            <div id="searchHistory" class="search-history">
+                <!-- dynamic search history results -->
             </div>
         </aside>
         <div class="full-results">
-            <div class="city-results">
-                <h3>CITY NAME</h3>
+            <div id="cityResults" class="city-results">
+                <h2 id="cityName" class="city-name">City name</h2>
                 <!-- Dynamically fill city name h2, date (w/ icon showing current weather), temp, wind, humidity & UV index -->
             </div>
-            <div class="forecast">
-                <p>fancy 5-day forecast boxes</p>
-                <!-- Dynamically fill h3 5-day forecast; 5 cards; -->
+            <div>
+                <h3 class="forecast-title">5-Day Forecast:</h3>
+                <div id="foreCast" class="forecast">
+                    <!-- Dynamically fill h3 5-day forecast; 5 cards; -->
+                </div>             
             </div>
         </div>
     </section>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
