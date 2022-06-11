@@ -61,6 +61,9 @@ var searchLatLon = function(city){
 var getLocationInfo = function(data){
     // create textContent City Name
     cityName.textContent = data[0].name + " (" + month + "/" + day + "/" + year + ") ";
+        if (data[0].clouds <= 50) {
+
+        }
     // openweather API url
     var apiUrl = "https:api.openweathermap.org/data/2.5/onecall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&units=imperial&exclude=hourly,minutely&appid=f64460980741f108f643fa3eeb49f4b2";
     
@@ -68,13 +71,13 @@ var getLocationInfo = function(data){
 
         // request was successful
         if (response.ok) {
-          response.json().then(function(data) {
-          console.log(data);
-          console.log(data.current.humidity);  
-          console.log(data.current.temp);
-          console.log(data.current.wind_speed);
-          console.log(data.current.uvi);
-        //   displayResults(data);
+            response.json().then(function(data) {
+            console.log(data);
+            console.log(data.current.humidity);  
+            console.log(data.current.temp);
+            console.log(data.current.wind_speed);
+            console.log(data.current.uvi);
+            displayResults(data);
           });
         }
         else {
@@ -85,8 +88,23 @@ var getLocationInfo = function(data){
 };
 
 var displayResults = function(data) {
-    cityResults.textContent
     var cityInfoList = document.createElement("ul")
+    cityResults.appendChild(cityInfoList);
+
+    var cityTemp = document.createElement("li");
+    cityTemp.className = ("city-name");
+    cityTemp.textContent = "Temp: " + data.current.temp + "°F";
+    cityInfoList.appendChild(cityTemp);
+
+    var cityWind = document.createElement("li")
+    
+    // cityInfoList.innerHTML = "<li class='city-data'>Wind: " + data.current.wind_speed + " MPH</li>";
+    // cityResults.appendChild(cityInfoList);
+    // cityInfoList.innerHTML = "<li class='city-data'>Humidity: " + data.current.humidity + " %</li>";
+    // cityResults.appendChild(cityInfoList);
+    // cityInfoList.innerHTML = "<li class='city-data'>UV Index: " + data.current.uvi + "</li>";
+    // cityResults.appendChild(cityInfoList);
+
     
 }
 
