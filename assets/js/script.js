@@ -20,6 +20,7 @@ var foreCast = document.querySelector("#foreCast");
 
 // declare array variable for saving to localStorage
 var cityDataInfo = [];
+console.log(cityDataInfo);
 
 var searchSubmit = function(event){
    
@@ -53,6 +54,7 @@ var searchLatLon = function(city){
             console.log(cityData[0].lat); 
             console.log(cityData[0].lon);
             // displayResults(data);
+            
             getLocationInfo(cityData);
             });
         } 
@@ -79,11 +81,11 @@ var getLocationInfo = function(cityData){
             console.log(data.current.temp);
             console.log(data.current.wind_speed);
             console.log(data.current.uvi);
-            displayResults(data, cityData);
             cityDataInfo.push(data, cityData);
+            displayResults(data, cityData);            
           });
         }
-    });
+    });   
 };
 
 var displayResults = function(data, cityData) {
@@ -174,6 +176,8 @@ var displayResults = function(data, cityData) {
     dayFiveTemp.textContent = data.daily[4].temp.day;
     dayFiveWind.textContent = data.daily[4].wind_speed;
     dayFiveHumidity.textContent = data.daily[4].humidity;
+
+    saveCityData();
 };
 
 var saveCityData = function () {
