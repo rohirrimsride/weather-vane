@@ -96,11 +96,6 @@ header {
 
 .uv-container {
     display: flex;
-
-}
-
-.city-info, button {
-    
 }
 
 .uvi-low {
@@ -109,9 +104,8 @@ header {
     font-size: medium;
     border-radius: 4px;
     border: none;
-    height: 100%;
     width: 60px;
-
+    margin: 10px 0px;
 }
 
 .uvi-moderate {
@@ -120,8 +114,8 @@ header {
     font-size: medium;
     border-radius: 4px;
     border: none;
-    height: 100%;
     width: 60px;
+    margin: 10px 0px;
 }
 
 .uvi-high {
@@ -130,7 +124,6 @@ header {
     font-size: medium;
     border-radius: 4px;
     border: none;
-    /*height: 100%;*/
     width: 60px;
     margin: 10px 0px;
 }
@@ -141,8 +134,8 @@ header {
     font-size: medium;
     border-radius: 4px;
     border: none;
-    height: 100%;
     width: 60px;
+    margin: 10px 0px;
 }
 
 .uvi-extreme {
@@ -151,6 +144,27 @@ header {
     font-size: medium;
     border-radius: 4px;
     border: none;
-    height: 100%;
     width: 60px;
+    margin: 10px 0px;
+}
+
+.forecast-title {
+    font-size: x-large;
+    margin: 15px 0px 10px 0px;
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards {
+    background-color: rgba(15, 19, 53, 0.774);
+    color: rgb(255, 255, 255);
+    text-indent: 5px;
+    font-weight: 500;
+}
+
+.card-date {
+    font-size: large;
 }
