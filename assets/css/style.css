@@ -10,7 +10,9 @@ header {
     display: flex;
     justify-content: center;
     background-image: linear-gradient(to right, rgba(44, 44, 226, 0.788), rgb(0, 0, 83)); 
+    background-size: cover;
     height: 10%; 
+    width: 100%;
 }
 
 .title {
@@ -43,7 +45,7 @@ header {
     font-size: xx-large;
     font-weight: 900;
     color: rgb(0, 0, 0);
-    margin: 15px 0px;
+    margin: 0px;
 }
 
 .search-input {
@@ -67,7 +69,7 @@ header {
 }
 
 .search-button:hover {
-    background-color: rgb(0, 0, 83);
+    background-color:  rgba(13, 18, 58, 0.774);
 }
 
 .full-results {
@@ -90,62 +92,49 @@ header {
 }
 
 .city-info {
-    margin: 10px 0px;
+    margin: 0px 0px 20px 0px;
     font-size: large;
 }
 
 .uv-container {
     display: flex;
 }
-
-.uvi-low {
-    background-color: rgb(0, 107, 0);
-    color: rgb(255, 255, 255); 
-    font-size: medium;
+/* check uv index number positioning in the button */
+.uvi-btn {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: smaller;
+    font-weight: 600;
     border-radius: 4px;
     border: none;
     width: 60px;
-    margin: 10px 0px;
+    margin: 0px 0px 20px 0px;
+    padding-bottom: 5px;
+}
+.uvi-low {
+    background-color: rgb(0, 107, 0);
+    color: rgb(255, 255, 255); 
 }
 
 .uvi-moderate {
     background-color: rgb(255, 251, 1);
     color: rgb(80, 80, 80);
-    font-size: medium;
-    border-radius: 4px;
-    border: none;
-    width: 60px;
-    margin: 10px 0px;
 }
 
 .uvi-high {
     background-color: rgb(255, 94, 0);
     color: rgb(255, 255, 255);
-    font-size: medium;
-    border-radius: 4px;
-    border: none;
-    width: 60px;
-    margin: 10px 0px;
 }
 
 .uvi-very-high {
     background-color: rgb(211, 0, 0);
     color: rgb(255, 255, 255);
-    font-size: medium;
-    border-radius: 4px;
-    border: none;
-    width: 60px;
-    margin: 10px 0px;
 }
 
 .uvi-extreme {
     background-color: rgb(87, 0, 185);
     color: rgb(255, 255, 255);
-    font-size: medium;
-    border-radius: 4px;
-    border: none;
-    width: 60px;
-    margin: 10px 0px;
 }
 
 .forecast-title {
@@ -159,12 +148,19 @@ header {
 }
 
 .cards {
-    background-color: rgba(15, 19, 53, 0.774);
+    background-color: rgba(13, 18, 58, 0.774);
     color: rgb(255, 255, 255);
     text-indent: 5px;
     font-weight: 500;
+    height: 100%;
+    width: 18%;
 }
 
 .card-date {
     font-size: large;
+    margin: 5px 0px 20px 0px;
 }
+
+/* .card-icon {
+
+} */

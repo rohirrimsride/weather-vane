@@ -1,3 +1,4 @@
+// date info for main card and daily forecast cards
 var date = new Date()
 console.log(date);
 var day = date.getDate();
@@ -7,9 +8,8 @@ console.log(month);
 var year = date.getFullYear();
 console.log(year);
 var currentDate = " (" + month + "/" + day + "/" + year + ") ";
-console.log(currentDate)+1;
-// figure out how to add days to currentDate
 
+// declare global variables
 var searchForm = document.querySelector("#searchForm");
 var searchInput = document.querySelector("#searchInput");
 var searchBtn = document.querySelector("#searchBtn");
@@ -17,9 +17,12 @@ var searchHistory = document.querySelector("#searchHistory");
 var cityResults = document.querySelector("#cityResults");
 var cityName = document.querySelector("#cityName");
 var foreCast = document.querySelector("#foreCast");
-// debugger;
+
+// declare array variable for saving to localStorage
+var cityDataInfo = [];
+
 var searchSubmit = function(event){
-    // debugger;
+   
     event.preventDefault();
     var citySearch = searchInput.value.trim();
     console.log(citySearch);
@@ -77,58 +80,104 @@ var getLocationInfo = function(cityData){
             console.log(data.current.wind_speed);
             console.log(data.current.uvi);
             displayResults(data, cityData);
+            cityDataInfo.push(data, cityData);
           });
         }
     });
 };
 
 var displayResults = function(data, cityData) {
+    // "http:openweathermap.org/img/wn/10d@2x.png"
+    // + data.current.weather[0].icon + ;
     // create textContent City Name
-    cityName.textContent = cityData[0].name + currentDate + data.current.weather.icon;
-
+    cityName.textContent = cityData[0].name + currentDate; 
+    
+    // main card city temperature
     var cityTemp = document.querySelector("#cityTemp");
     cityTemp.textContent = data.current.temp;
-
+    
+    // main card city wind speed
     var cityWind = document.querySelector("#cityWind");
     cityWind.textContent = data.current.wind_speed;
-
+    
+    // main card city humidity
     var cityHumidity = document.querySelector("#cityHumidity");
     cityHumidity.textContent = data.current.humidity;
-
+    
     var uvContainer = document.querySelector("#uvContainer");
+        // remove any previous child buttons
+        if (uvContainer.children.length >= 2){
+            console.log(uvContainer.children);
+            uvContainer.removeChild(uvContainer.children[1]);
+        };
     var cityUvi = document.createElement("button");
-    cityUvi.textContent = "  " + data.current.uvi + "  ";
+    cityUvi.textContent = data.current.uvi;
     uvContainer.appendChild(cityUvi);
+        
         if (data.current.uvi <= 2.99) {
             
-            cityUvi.className = ("uvi-low");
+            cityUvi.classList.add("uvi-low", "uvi-btn");
             
         } else if (data.current.uvi >= 3 && data.current.uvi <= 5.99) {
 
-            cityUvi.className = ("uvi-moderate");
+            cityUvi.classList.add("uvi-moderate", "uvi-btn");
 
         } else if (data.current.uvi >= 6 && data.current.uvi <= 7.99) {
 
-            cityUvi.className = ("uvi-high");
+            cityUvi.classList.add("uvi-high", "uvi-btn");
 
         } else if (data.current.uvi >= 8 && data.current.uvi <= 10.99) {
 
-            cityUvi.className = ("uvi-very-high");
+            cityUvi.classList.add("uvi-very-high", "uvi-btn");
 
         } else if (data.current.uvi >= 11) {
 
-            cityUvi.className = ("uvi-extreme");
-
+            cityUvi.classList.add("uvi-extreme", "uvi-btn");
         };
 
+    // forecast card day one
     var dayOneDate = document.querySelector("#dayOneDate");
-    dayOneDate.textContent = data.daily[0].dt;
-    console.log(data.daily[0].dt);
-// finish up cards
+    var dayOne = date.getDate()+1;
+    dayOneDate.textContent = month + "/" + dayOne + "/" + year;
+    dayOneTemp.textContent = data.daily[0].temp.day;
+    dayOneWind.textContent = data.daily[0].wind_speed;
+    dayOneHumidity.textContent = data.daily[0].humidity;
     
-
-
+    // forecast card day two
+    var dayTwoDate = document.querySelector("#dayTwoDate");
+    var dayTwo = date.getDate()+2;
+    dayTwoDate.textContent = month + "/" + dayTwo + "/" + year;
+    dayTwoTemp.textContent = data.daily[1].temp.day;
+    dayTwoWind.textContent = data.daily[1].wind_speed;
+    dayTwoHumidity.textContent = data.daily[1].humidity;
+    
+    // forecast card day three
+    var dayThreeDate = document.querySelector("#dayThreeDate");
+    var dayThree = date.getDate()+3;
+    dayThreeDate.textContent = month + "/" + dayThree + "/" + year;
+    dayThreeTemp.textContent = data.daily[2].temp.day;
+    dayThreeWind.textContent = data.daily[2].wind_speed;
+    dayThreeHumidity.textContent = data.daily[2].humidity;
+    
+    // forecast card day four
+    var dayFourDate = document.querySelector("#dayFourDate");
+    var dayFour = date.getDate()+4;
+    dayFourDate.textContent = month + "/" + dayFour + "/" + year;
+    dayFourTemp.textContent = data.daily[3].temp.day;
+    dayFourWind.textContent = data.daily[3].wind_speed;
+    dayFourHumidity.textContent = data.daily[3].humidity;
+    
+    // forecast card day five
+    var dayFiveDate = document.querySelector("#dayFiveDate");
+    var dayFive = date.getDate()+5;
+    dayFiveDate.textContent = month + "/" + dayFive + "/" + year;
+    dayFiveTemp.textContent = data.daily[4].temp.day;
+    dayFiveWind.textContent = data.daily[4].wind_speed;
+    dayFiveHumidity.textContent = data.daily[4].humidity;
 };
 
+var saveCityData = function () {
+    localStorage.setItem("cityDataInfo", JSON.stringify(cityDataInfo));
+};
 
 searchForm.addEventListener("submit", searchSubmit);
