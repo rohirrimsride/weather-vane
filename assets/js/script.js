@@ -61,8 +61,9 @@ var searchLatLon = function(city){
 var getLocationInfo = function(data){
     // create textContent City Name
     cityName.textContent = data[0].name + " (" + month + "/" + day + "/" + year + ") ";
-        if (data[0].clouds <= 50) {
-
+        if (data[0].clouds >= 66) {
+            var skyCondition = document.createElement("i");
+            skyCondition
         }
     // openweather API url
     var apiUrl = "https:api.openweathermap.org/data/2.5/onecall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&units=imperial&exclude=hourly,minutely&appid=f64460980741f108f643fa3eeb49f4b2";
@@ -80,36 +81,47 @@ var getLocationInfo = function(data){
             displayResults(data);
           });
         }
-        else {
-          console.log(response);
-          alert("There was a problem with your request!");
-        }
-      });
+    });
 };
 
 var displayResults = function(data) {
-    var cityInfoList = document.createElement("ul")
-    cityResults.appendChild(cityInfoList);
 
-    var cityTemp = document.createElement("li");
-    cityTemp.className = ("city-name");
-    cityTemp.textContent = "Temp: " + data.current.temp + "°F";
-    cityInfoList.appendChild(cityTemp);
+    var cityTemp = document.querySelector("#cityTemp");
+    cityTemp.textContent = data.current.temp;
 
-    var cityWind = document.createElement("li")
-    
-    // cityInfoList.innerHTML = "<li class='city-data'>Wind: " + data.current.wind_speed + " MPH</li>";
-    // cityResults.appendChild(cityInfoList);
-    // cityInfoList.innerHTML = "<li class='city-data'>Humidity: " + data.current.humidity + " %</li>";
-    // cityResults.appendChild(cityInfoList);
-    // cityInfoList.innerHTML = "<li class='city-data'>UV Index: " + data.current.uvi + "</li>";
-    // cityResults.appendChild(cityInfoList);
+    var cityWind = document.querySelector("#cityWind");
+    cityWind.textContent = data.current.wind_speed;
 
-    
-}
+    var cityHumidity = document.querySelector("#cityHumidity");
+    cityHumidity.textContent = data.current.humidity;
+
+    var uvContainer = document.querySelector("#uvContainer");
+    var cityUvi = document.createElement("button");
+    cityUvi.textContent = "  " + data.current.uvi + "  ";
+    uvContainer.appendChild(cityUvi);
+        if (data.current.uvi <= 2.99) {
+            
+            cityUvi.className = ("uvi-low");
+            
+        } else if (data.current.uvi >= 3 && data.current.uvi <= 5.99) {
+
+            cityUvi.className = ("uvi-moderate");
+
+        } else if (data.current.uvi >= 6 && data.current.uvi <= 7.99) {
+
+            cityUvi.className = ("uvi-high");
+
+        } else if (data.current.uvi >= 8 && data.current.uvi <= 10.99) {
+
+            cityUvi.className = ("uvi-very-high");
+
+        } else if (data.current.uvi >= 11) {
+
+            cityUvi.className = ("uvi-extreme");
+
+        };
+
+};
 
 
 searchForm.addEventListener("submit", searchSubmit);
-
-// searchLatLon();
-// getLocationInfo();

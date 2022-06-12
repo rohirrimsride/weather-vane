@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Weather Vane</title>
 </head>
@@ -27,12 +30,20 @@
             <div id="cityResults" class="city-results">
                 <h2 id="cityName" class="city-name"></h2>
                 <!-- Dynamically fill city name h2, date (w/ icon showing current weather), temp, wind, humidity & UV index -->
+                <p class="city-info">Temp: <span id="cityTemp" class="city-info"></span>°F</p>
+                <p class="city-info">Wind: <span id="cityWind" class="city-info"></span> MPH</p>
+                <p class="city-info">Humidity: <span id="cityHumidity" class="city-info"></span> %</p>
+                <div id="uvContainer" class="uv-container">
+                    <p class="city-info">UV Index:&nbsp;</p>
+                    <!-- <button id="cityUvi" class="city-uvi-info"></button> -->
+                </div>  
             </div>
             <div>
                 <h3 class="forecast-title">5-Day Forecast:</h3>
                 <div id="foreCast" class="forecast">
                     <!-- Dynamically fill h3 5-day forecast; 5 cards; -->
-                </div>             
+                    
+                </div>         
             </div>
         </div>
     </section>
