@@ -80,10 +80,18 @@ var getLocationInfo = function(cityData){
 };
 
 var displayResults = function(data, cityData){
-    // "http:openweathermap.org/img/wn/10d@2x.png"
-    // + data.current.weather[0].icon + ;
     // create textContent City Name
-    cityName.textContent = cityData[0].name + currentDate; 
+    debugger;
+    cityName.textContent = cityData[0].name + currentDate;
+    var cityNameContainer = document.querySelector("#cityNameContainer")
+    var iconCode = data.current.weather[0].icon;
+    var iconUrl = "http:openweathermap.org/img/wn/" + iconCode + "@2x.png";
+
+    var weatherIcon = document.createElement("img");
+    weatherIcon.className = ("weather-icon");
+    weatherIcon.textContent = iconUrl;
+    cityNameContainer.appendChild(weatherIcon);
+
     
     // main card city temperature
     var cityTemp = document.querySelector("#cityTemp");
