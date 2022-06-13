@@ -68,10 +68,6 @@ header {
     padding: 5px;
 }
 
-.search-button:hover {
-    background-color:  rgba(13, 18, 58, 0.774);
-}
-
 .full-results {
     display: flex;
     flex-direction: column;
@@ -164,3 +160,20 @@ header {
 /* .card-icon {
 
 } */
+
+.search-history {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-btns {
+    text-align: center;
+    height: 35px;
+    background-color: rgb(168, 168, 168);
+    border-radius: 5px;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: large;
+    padding: 5px;
+    margin-top: 10px;
+}

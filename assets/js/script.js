@@ -19,7 +19,10 @@ var cityName = document.querySelector("#cityName");
 var foreCast = document.querySelector("#foreCast");
 
 // declare array variable for saving to localStorage
+var cityNameInfo = [];
 var cityDataInfo = [];
+
+console.log(cityNameInfo);
 console.log(cityDataInfo);
 
 var searchSubmit = function(event){
@@ -30,8 +33,6 @@ var searchSubmit = function(event){
 
     if (citySearch) {
         searchLatLon(citySearch);
-        // console.log(citySearch);
-        // searchInput.value = "";
     } 
     // else {
     //     alert("Please enter: city name, state code(ex. TX), country code(ex. US)")
@@ -41,7 +42,7 @@ var searchSubmit = function(event){
 // fetch API for getting latitude and longitude
 var searchLatLon = function(city){
     console.log(city);
-
+// debugger;
     var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=f64460980741f108f643fa3eeb49f4b2";
 
     fetch(apiUrl).then(function(response) {
@@ -81,7 +82,8 @@ var getLocationInfo = function(cityData){
             console.log(data.current.temp);
             console.log(data.current.wind_speed);
             console.log(data.current.uvi);
-            cityDataInfo.push(data, cityData);
+            cityNameInfo.unshift(cityData);
+            cityDataInfo.unshift(data);
             displayResults(data, cityData);            
           });
         }
@@ -109,7 +111,6 @@ var displayResults = function(data, cityData) {
     var uvContainer = document.querySelector("#uvContainer");
         // remove any previous child buttons
         if (uvContainer.children.length >= 2){
-            console.log(uvContainer.children);
             uvContainer.removeChild(uvContainer.children[1]);
         };
     var cityUvi = document.createElement("button");
@@ -181,7 +182,63 @@ var displayResults = function(data, cityData) {
 };
 
 var saveCityData = function () {
+    localStorage.setItem("cityNameInfo", JSON.stringify(cityNameInfo));
     localStorage.setItem("cityDataInfo", JSON.stringify(cityDataInfo));
+
+    citySearchHistory();
+};
+
+var citySearchHistory = function(){
+
+        if (searchHistory.children.length <= 7){
+            // add history button
+            var historyBtn = document.createElement("button");
+            historyBtn.className = ("history-btns");
+            historyBtn.textContent = cityNameInfo[0][0].name;
+            historyBtn.setAttribute("id", cityNameInfo[0][0].name);
+            historyBtn.setAttribute("type", "submit");
+            searchHistory.prepend(historyBtn);
+        } 
+        else if (searchHistory.children.length === 8){
+            cityNameInfo.slice(7,8);
+            console.log(cityNameInfo);
+            cityDataInfo.slice(7,8);
+            console.log(cityDataInfo);
+            searchHistory.removeChild(searchHistory.lastElementChild);
+            // add most recent city search
+            var historyBtn = document.createElement("button");
+            historyBtn.className = ("history-btns");
+            historyBtn.textContent = cityNameInfo[0][0].name;
+            historyBtn.setAttribute("id", cityNameInfo[0][0].name);
+            historyBtn.setAttribute("type", "submit");
+            searchHistory.prepend(historyBtn);
+        };
+};
+
+// var retrieveHistory = function(){
+//     if (localStorage.getItem("cityNameInfo") !== null) {
+//         var cityName = localStorage.getItem("cityNameInfo");
+//         cityNameInfo.push(cityName);
+//     } 
+//     if (localStorage.getItem("cityDataInfo") !== null) {
+//         var cityData = localStorage.getItem("cityDataInfo");
+//         cityDataInfo.push(cityData);
+//     } else {
+//         searchForm.addEventListener("submit", searchSubmit); 
+//     };  
+// };
+
+var loadPreviousSearch = function(event){
+
+    event.preventDefault();
+    var citySearch = `${event.submitter.textContent}`;
+   
+    searchLatLon(citySearch);
 };
 
 searchForm.addEventListener("submit", searchSubmit);
+
+searchHistory.addEventListener("submit", retrieveHistory);
+
+
+// retrieveHistory();
