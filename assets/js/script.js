@@ -258,7 +258,7 @@ var citySearchHistory = function(){
             searchHistory.prepend(historyBtn);
         } 
         else if (searchHistory.children.length === 8){
-            cityNameInfo.slice(7,8);
+            cityNameInfo.pop();
             console.log(cityNameInfo);
             searchHistory.removeChild(searchHistory.lastElementChild);
             // add most recent city search
