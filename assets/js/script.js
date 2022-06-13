@@ -31,7 +31,7 @@ var searchSubmit = function(event){
 // fetch API for getting latitude and longitude
 var searchLatLon = function(city){
 
-    var apiUrl = "https:api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=f64460980741f108f643fa3eeb49f4b2";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=f64460980741f108f643fa3eeb49f4b2";
 
     fetch(apiUrl).then(function(response){
 
@@ -59,7 +59,7 @@ var searchLatLon = function(city){
 var getLocationInfo = function(cityData){
         
     // openweather API url
-    var apiUrl = "https:api.openweathermap.org/data/2.5/onecall?lat=" + cityData.coord.lat + "&lon=" + cityData.coord.lon + "&units=imperial&exclude=hourly,minutely&appid=f64460980741f108f643fa3eeb49f4b2";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + cityData.coord.lat + "&lon=" + cityData.coord.lon + "&units=imperial&exclude=hourly,minutely&appid=f64460980741f108f643fa3eeb49f4b2";
     
     fetch(apiUrl).then(function(response){
 
@@ -84,7 +84,7 @@ var displayResults = function(data, cityData){
     cityName.textContent = cityData.name + currentDate;
     var cityNameContainer = document.querySelector("#cityNameContainer")
     var iconCode = data.current.weather[0].icon;
-    var iconUrl = "https:openweathermap.org/img/wn/" + iconCode + ".png";
+    var iconUrl = "https://openweathermap.org/img/wn/" + iconCode + ".png";
     console.log(iconUrl);
     cityNameContainer.children.length
     console.log(cityNameContainer.children.length);
