@@ -260,8 +260,6 @@ var citySearchHistory = function(){
         else if (searchHistory.children.length === 8){
             cityNameInfo.slice(7,8);
             console.log(cityNameInfo);
-            cityDataInfo.slice(7,8);
-            console.log(cityDataInfo);
             searchHistory.removeChild(searchHistory.lastElementChild);
             // add most recent city search
             var historyBtn = document.createElement("button");
