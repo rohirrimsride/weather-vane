@@ -11,6 +11,6 @@ Save search history to recall from localStorage
 ## Published Page Link
 https://rohirrimsride.github.io/weather-vane/
 
-#Credits
+## Credits
 OpenWeather API
 Me
