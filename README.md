@@ -6,6 +6,7 @@ Including a 5-day Forecast
 Save search history to recall from localStorage
 
 ## ScreenShot
+![image](https://user-images.githubusercontent.com/96882225/173377978-acd23fb4-2bca-4fff-969a-9f81149aa1d7.png)
 
 
 ## Published Page Link
