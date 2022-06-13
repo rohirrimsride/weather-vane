@@ -31,7 +31,7 @@ var searchSubmit = function(event){
 // fetch API for getting latitude and longitude
 var searchLatLon = function(city){
 
-    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=f64460980741f108f643fa3eeb49f4b2";
+    var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=f64460980741f108f643fa3eeb49f4b2";
 
     fetch(apiUrl).then(function(response){
 
@@ -85,7 +85,7 @@ var displayResults = function(data, cityData){
     cityName.textContent = cityData[0].name + currentDate;
     var cityNameContainer = document.querySelector("#cityNameContainer")
     var iconCode = data.current.weather[0].icon;
-    var iconUrl = "http:openweathermap.org/img/wn/" + iconCode + "@2x.png";
+    var iconUrl = "https:openweathermap.org/img/wn/" + iconCode + "@2x.png";
 
     var weatherIcon = document.createElement("img");
     weatherIcon.className = ("weather-icon");
