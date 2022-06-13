@@ -155,7 +155,7 @@ var displayResults = function(data, cityData){
     dayOneIcon = document.querySelector("#dayOneIcon")
     dayOneIcon.className = ("forecast-icon");
     dayOneCode = data.daily[0].weather[0].icon;
-    dayOneIcon.setAttribute("src", "https:openweathermap.org/img/wn/" + dayOneCode + ".png")
+    dayOneIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + dayOneCode + ".png")
     dayOneIcon.setAttribute("alt", data.daily[0].weather[0].description);
     // temp
     dayOneTemp.textContent = data.daily[0].temp.day;
@@ -175,7 +175,7 @@ var displayResults = function(data, cityData){
     dayTwoIcon = document.querySelector("#dayTwoIcon")
     dayTwoIcon.className = ("forecast-icon");
     dayTwoCode = data.daily[1].weather[0].icon;
-    dayTwoIcon.setAttribute("src", "https:openweathermap.org/img/wn/" + dayTwoCode + ".png")
+    dayTwoIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + dayTwoCode + ".png")
     dayTwoIcon.setAttribute("alt", data.daily[1].weather[0].description);
     // temp
     dayTwoTemp.textContent = data.daily[1].temp.day;
@@ -193,7 +193,7 @@ var displayResults = function(data, cityData){
     dayThreeIcon = document.querySelector("#dayThreeIcon")
     dayThreeIcon.className = ("forecast-icon");
     dayThreeCode = data.daily[2].weather[0].icon;
-    dayThreeIcon.setAttribute("src", "https:openweathermap.org/img/wn/" + dayThreeCode + ".png")
+    dayThreeIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + dayThreeCode + ".png")
     dayThreeIcon.setAttribute("alt", data.daily[2].weather[0].description);
     // temp
     dayThreeTemp.textContent = data.daily[2].temp.day;
@@ -211,7 +211,7 @@ var displayResults = function(data, cityData){
     dayFourIcon = document.querySelector("#dayFourIcon")
     dayFourIcon.className = ("forecast-icon");
     dayFourCode = data.daily[3].weather[0].icon;
-    dayFourIcon.setAttribute("src", "https:openweathermap.org/img/wn/" + dayFourCode + ".png")
+    dayFourIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + dayFourCode + ".png")
     dayFourIcon.setAttribute("alt", data.daily[3].weather[0].description);
     // temp
     dayFourTemp.textContent = data.daily[3].temp.day;
@@ -229,7 +229,7 @@ var displayResults = function(data, cityData){
     dayFiveIcon = document.querySelector("#dayFiveIcon")
     dayFiveIcon.className = ("forecast-icon");
     dayFiveCode = data.daily[4].weather[0].icon;
-    dayFiveIcon.setAttribute("src", "https:openweathermap.org/img/wn/" + dayFiveCode + ".png")
+    dayFiveIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + dayFiveCode + ".png")
     dayFiveIcon.setAttribute("alt", data.daily[4].weather[0].description);
     // temp
     dayFiveTemp.textContent = data.daily[4].temp.day;
