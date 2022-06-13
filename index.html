@@ -4,23 +4,83 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Vane</title>
 </head>
 <body>
-    <header class="container $cyan">
-        <h1>Weather Dashboard</h1>
+    <header>
+        <h1 class="title">Weather Dashboard</h1>
     </header>
-    <section>
-        <div>
-            <h2>Search for a City:</h2>
-        </div>
-        <div>
-            <!-- Dynamically fill city name h2, date (w/ icon showing current weather), temp, wind, humidity & UV index -->
-        </div>
-        <div>
-            <!-- Dynamically fill h3 5-day forecast -->
+    <section class="container">
+        <aside class="search">
+            <form id="searchForm" class="search-form">
+                <h2 class="city-search">Search for a City:</h2>
+                <input id="searchInput" type="text" class="search-input" placeholder="City, ST, CO"/>
+                <button id="searchBtn" type="submit" class="search-button">Search</button>
+            </form>  
+            <form id="searchHistory" class="search-history">
+                <!-- dynamic search history results -->
+            </form>
+        </aside>
+        <div class="full-results">
+            <div id="cityResults" class="city-results">
+                <div id="cityNameContainer" class="city-name-container">
+                    <h2 id="cityName" class="city-name"></h2>
+                </div>
+                <p class="city-info">Temp: <span id="cityTemp" class="city-info"></span>°F</p>
+                <p class="city-info">Wind: <span id="cityWind" class="city-info"></span> MPH</p>
+                <p class="city-info">Humidity: <span id="cityHumidity" class="city-info"></span> %</p>
+                <div id="uvContainer" class="uv-container">
+                    <p id="uvEl" class="city-info">UV Index:&nbsp;</p>
+                    <!-- button created in javascript to hold uvi info -->
+                </div>  
+            </div>
+            <div>
+                <h3 class="forecast-title">5-Day Forecast:</h3>
+                <div id="foreCast" class="forecast-container">
+                    <!-- Dynamically fill div with 5-day forecast; 5 cards; -->
+                    <div class="cards">
+                        <h4 id="dayOneDate" class="card-date"></h4>
+                        <i id="dayOneIcon"></i>
+                        <p class="">Temp: <span id="dayOneTemp"></span>°F</p>
+                        <p class="">Wind: <span id="dayOneWind"></span> MPH</p>
+                        <p class="">Humidity: <span id="dayOneHumidity"></span> %</p>
+                    </div>
+                    <div class="cards">
+                        <h4 id="dayTwoDate" class="card-date"></h4>
+                        <i id="dayTwoIcon"></i>
+                        <p class="">Temp: <span id="dayTwoTemp"></span>°F</p>
+                        <p class="">Wind: <span id="dayTwoWind"></span> MPH</p>
+                        <p class="">Humidity: <span id="dayTwoHumidity"></span> %</p>
+                    </div>
+                    <div class="cards">
+                        <h4 id="dayThreeDate" class="card-date"></h4>
+                        <i id="dayThreeIcon"></i>
+                        <p class="">Temp: <span id="dayThreeTemp"></span>°F</p>
+                        <p class="">Wind: <span id="dayThreeWind"></span> MPH</p>
+                        <p class="">Humidity: <span id="dayThreeHumidity"></span> %</p>
+                    </div>
+                    <div class="cards">
+                        <h4 id="dayFourDate" class="card-date"></h4>
+                        <i id="dayFourIcon"></i>
+                        <p class="">Temp: <span id="dayFourTemp"></span>°F</p>
+                        <p class="">Wind: <span id="dayFourWind"></span> MPH</p>
+                        <p class="">Humidity: <span id="dayFourHumidity"></span> %</p>
+                    </div>
+                    <div class="cards">
+                        <h4 id="dayFiveDate" class="card-date"></h4>
+                        <i id="dayFiveIcon"></i>
+                        <p class="">Temp: <span id="dayFiveTemp"></span>°F</p>
+                        <p class="">Wind: <span id="dayFiveWind"></span> MPH</p>
+                        <p class="">Humidity: <span id="dayFiveHumidity"></span> %</p>
+                    </div>
+                </div>         
+            </div>
         </div>
     </section>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
