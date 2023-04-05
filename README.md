@@ -14,5 +14,5 @@ https://rohirrimsride.github.io/weather-vane/
 
 ## Credits
 
-OpenWeather API
-Me
+- OpenWeather API
+- Me
