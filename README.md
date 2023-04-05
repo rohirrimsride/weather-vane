@@ -1,7 +1,7 @@
 # weather-vane
 
 ## Description
-Weather-vane is a simple weather app for looking up the weather by city, state, country.  It includes a 5-day forecast as well as saving previous city searches by utilizing LocalStorage.  
+Weather-vane is a weather app for looking up the weather by city, state, country.  It includes a 5-day forecast as well as saving previous city searches by utilizing LocalStorage.  
 
 ## ScreenShot
 
